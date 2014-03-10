@@ -7,7 +7,6 @@ const int SENSOR = A0;
 
 RunningMedian samples = RunningMedian(30);
 DistanceGP2Y0A21YK Dist;
-/* int distance; */
 long count = 0;
 
 void setup() {
@@ -16,11 +15,9 @@ void setup() {
 }
 
 void loop() {
-  /* distance = Dist.getDistanceCentimeter(); */
   samples.add(Dist.getDistanceCentimeter());
   count++;
   if (count % 10 == 0)
-    /* Serial.println(microsecondsToInches(samples.getMedian())); */
     Serial.println(samples.getMedian());  
   delay(10);
 }
