@@ -4,7 +4,6 @@
 #include <RunningMedian.h>
 
 const int SENSOR = A0;
-
 RunningMedian samples = RunningMedian(30);
 DistanceGP2Y0A21YK Dist;
 long count = 0;
@@ -17,7 +16,6 @@ void setup() {
 void loop() {
   samples.add(Dist.getDistanceCentimeter());
   count++;
-  if (count % 10 == 0)
-    Serial.println(samples.getMedian());  
+  if (count % 10 == 0) Serial.println(samples.getMedian());  
   delay(10);
 }

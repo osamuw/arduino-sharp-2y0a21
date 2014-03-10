@@ -107,6 +107,7 @@
       var stat = document.getElementById("stat");
       var thresholdInCm = 160;
       var minSpeed = 1000;
+
       socket.on('data', function (data) {
         var percent = (1 - (data / thresholdInCm)) * 100;
         if (percent < 0) percent = 1;
@@ -114,7 +115,6 @@
         clearInterval(innerEyesInterval);
         clearInterval(outerEyesInterval);
         var speed = (100 - percent) * 10;
-        // console.log("setting speed at: ", speed);
         duck.volume = (1 - (data / thresholdInCm));
         innerEyesInterval = blinkEyes(innerEyes, speed);
         outerEyesInterval = blinkEyes(outerEyes, speed);
